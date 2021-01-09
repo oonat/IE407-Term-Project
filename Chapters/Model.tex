@@ -1,1 +1,47 @@
-Model..
+\textbf{Parameters:}\\
+I : Set of products\\
+$I^{1}$: Set of product pairs (i1, i2) that cannot be placed on the same shelf.\\
+$I^{2}$: Set of product pairs (i1, i2) that will be included together in the assortment.\\
+K : Set of shelves\\
+$\pi_i$: Profit made by selling one unit of product i\\
+$w_k$ : Width of shelf k\\
+$\gamma_k$ : Shelf k’s effect on demand\\
+$ds_k$ : Depth of shelf k\\
+$dp_i$ : Depth of unit product i\\
+$b_i$: Width of a facing for product i\\
+$d_i$: Coefficient for demand rate for product i per unit width and one facing\\
+$\beta_i$: Space elasticity factor for product i\\
+$s^{l}_i$ : Lower bound on the shelf inventory of product, if i is selected in the assortment\\
+$s^{u}_i$ : Upper bound on the shelf inventory of product, if i is selected in the assortment\\
+\\
+\textbf{Calculated Data Sets:}\\
+$N_{ik}$: number of product i in shelf k per allocation:\\
+$N_{ik}=(ds_k/dp_i)-((ds_k/dp_i)\%1)$\\
+\\
+\textbf{Decision Variables:}\\
+$X_{ik}:$ Will the product i be on shelf k\\
+$f_{ik}$: number of allocated facings for product i on shelf k.\\
+\\
+\textbf{Objective function:}\\
+max $\sum^{productCount}_{i=1}\sum^{shelfCount}_{k=1}\pi_i \gamma_k d_i(f_{ik} * b_i)^{\beta_i}$\\
+\\
+\textbf{Subjected To:}\\
+$\sum^{shelfCount}_{k=1}X_{ik}\leq 1$ (comes from Rule 1)\\
+\\
+$f_{ik}\leq4$ for all i and k.   (comes from Rule 2)\\
+\\
+$\sum^{shelfCount}_{k=1}f_{ik}*N_{ik}\leq s^{u}_i*X_{ik}$ \\
+\\
+$\sum^{shelfCount}_{k=1}f_{ik}*N_{ik}\geq s^{l}_i*X_{ik}$\\
+(above 2 constrains comes from Rule 3 and 4)\\
+(above 2 constrains also enforces $f_{ik}$ to be 0 when $X_{ik}$ is 0)\\
+\\
+$\sum^{productCount}_{i=1}f_{ik}*b_i\leq w_k$ for all k (comes from 6)\\
+\\
+$X_{2,k}+X_{5,k}\leq 1$ for all k (comes from Rule 7)\\
+$X_{3,k}+X_{8,k}\leq 1$ for all k (comes from Rule 7)\\
+$X_{16,k}+X_{20,k}\leq 1$ for all k (comes from Rule 7)\\
+$X_{1,k}-X_{12,k}=0$ for all k (comes from Rule 8)\\
+$X_{3,k}-X_{8,k}=0$ for all k (comes from Rule 8)\\
+$X_{9,k}-X_{15,k}=0$ for all k (comes from Rule 8)\\
+$X_{16,k}-X_{20,k}=0$ for all k (comes from Rule 8)\\
