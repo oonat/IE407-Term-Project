@@ -14,34 +14,76 @@ $\beta_i$: Space elasticity factor for product i\\
 $s^{l}_i$ : Lower bound on the shelf inventory of product, if i is selected in the assortment\\
 $s^{u}_i$ : Upper bound on the shelf inventory of product, if i is selected in the assortment\\
 \\
+\textbf{Notation:}\\
+$|I|$: Size of the set of products\\
+$|K|$: Size of the set of shelves\\ \\
 \textbf{Calculated Data Sets:}\\
 $N_{ik}$: number of product i in shelf k per allocation:\\
 $N_{ik}=(ds_k/dp_i)-((ds_k/dp_i)\%1)$\\
 \\
 \textbf{Decision Variables:}\\
-$X_{ik}:$ Will the product i be on shelf k\\
-$f_{ik}$: number of allocated facings for product i on shelf k.\\
+$X_{ik}:$ Will the product i be on shelf k. Such that,\\
+\[
+X_{ik} =
+\begin{cases}
+1, & if \ i \ is \ allocated \ in \  k \\
+0, & otherwise \\
+\end{cases}
+\]
+$f_{ik}$: Number of allocated facings for product i on shelf k.\\
 \\
 \textbf{Objective function:}\\
-max $\sum^{productCount}_{i=1}\sum^{shelfCount}_{k=1}\pi_i \gamma_k d_i(f_{ik} * b_i)^{\beta_i}$\\
-\\
+\begin{equation*}
+\begin{split}
+max \sum^{|I|}_{i=1}\sum^{|K|}_{k=1}\pi_i \gamma_k d_i(f_{ik} * b_i)^{\beta_i} \\
+\end{split}
+\end{equation*}
 \textbf{Subjected To:}\\
-$\sum^{shelfCount}_{k=1}X_{ik}\leq 1$ (comes from Rule 1)\\
-\\
-$f_{ik}\leq4$ for all i and k.   (comes from Rule 2)\\
-\\
-$\sum^{shelfCount}_{k=1}f_{ik}*N_{ik}\leq s^{u}_i*X_{ik}$ \\
-\\
-$\sum^{shelfCount}_{k=1}f_{ik}*N_{ik}\geq s^{l}_i*X_{ik}$\\
-(above 2 constrains comes from Rule 3 and 4)\\
-(above 2 constrains also enforces $f_{ik}$ to be 0 when $X_{ik}$ is 0)\\
-\\
-$\sum^{productCount}_{i=1}f_{ik}*b_i\leq w_k$ for all k (comes from 6)\\
-\\
-$X_{2,k}+X_{5,k}\leq 1$ for all k (comes from Rule 7)\\
-$X_{3,k}+X_{8,k}\leq 1$ for all k (comes from Rule 7)\\
-$X_{16,k}+X_{20,k}\leq 1$ for all k (comes from Rule 7)\\
-$X_{1,k}-X_{12,k}=0$ for all k (comes from Rule 8)\\
-$X_{3,k}-X_{8,k}=0$ for all k (comes from Rule 8)\\
-$X_{9,k}-X_{15,k}=0$ for all k (comes from Rule 8)\\
-$X_{16,k}-X_{20,k}=0$ for all k (comes from Rule 8)\\
+\begin{equation*}
+\begin{split}
+\sum^{|K|}_{k=1}X_{ik}\leq 1 \quad \forall i \in I \qquad (Rule \ 1)\\
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+f_{ik}\leq4 \quad \forall i \in I \quad \forall k \in K  \qquad (Rule \ 2)
+\end{split}
+\end{equation*}
+\begin{equation}\label{constraint3}
+\begin{split}
+\sum^{|K|}_{k=1}f_{ik}*N_{ik}\leq s^{u}_i*X_{ik} \quad \forall i \in I
+\end{split}
+\end{equation}
+\begin{equation}\label{constraint4}
+\begin{split}
+\sum^{|K|}_{k=1}f_{ik}*N_{ik}\geq s^{l}_i*X_{ik} \quad \forall i \in I
+\end{split}
+\end{equation}
+Constraint \eqref{constraint3} and \eqref{constraint4} come from Rule 3 and 4 and enforces $f_{ik}$ to be 0 when $X_{ik}$ is 0.\\
+\begin{equation*}
+\begin{split}
+\sum^{|I|}_{i=1}f_{ik}*b_i\leq w_k \quad \forall k \in K \qquad (Rule \ 6)
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+\sum^{|K|}_{k=1}X_{i_{1}k}-\sum^{|K|}_{k=1}X_{i_{2}k}=0 \quad \forall (i_{1},i_{2}) \in I^2  \qquad (Rule \ 7) \\ \\
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+X_{i_{1}k} + X_{i_{2}k} \leq 1 \qquad \forall k \in K \quad  \forall (i_{1},i_{2}) \in I^1  \qquad (Rule \ 8)\\
+\end{split}
+\end{equation*}
+
+\textbf{Restrictions:}\\
+\begin{equation*}
+\begin{split}
+X_{ik} \in \{0,1\} \qquad \forall i \in I \quad \forall k \in K 
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+f_{ik} \geq 0 \quad and \quad f \ is \ integer \qquad \forall i \in I \quad \forall k \in K
+\end{split}
+\end{equation*}
