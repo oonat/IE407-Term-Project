@@ -33,20 +33,45 @@ X_{ik} =
 $f_{ik}$: Number of allocated facings for product i on shelf k.\\
 \\
 \textbf{Objective function:}\\
-max $\sum^{|I|}_{i=1}\sum^{|K|}_{k=1}\pi_i \gamma_k d_i(f_{ik} * b_i)^{\beta_i}$\\
-\\
+\begin{equation*}
+\begin{split}
+max \sum^{|I|}_{i=1}\sum^{|K|}_{k=1}\pi_i \gamma_k d_i(f_{ik} * b_i)^{\beta_i} \\
+\end{split}
+\end{equation*}
 \textbf{Subjected To:}\\
-$\sum^{|K|}_{k=1}X_{ik}\leq 1 \quad \forall i \in I$ (comes from Rule 1)\\
-\\
-$f_{ik}\leq4 \quad \forall i \in I \quad \forall k \in K$.   (comes from Rule 2)\\
-\\
-$\sum^{|K|}_{k=1}f_{ik}*N_{ik}\leq s^{u}_i*X_{ik} \quad \forall i \in I$ \\
-\\
-$\sum^{|K|}_{k=1}f_{ik}*N_{ik}\geq s^{l}_i*X_{ik} \quad \forall i \in I$\\
-(above 2 constrains comes from Rule 3 and 4)\\
-(above 2 constrains also enforces $f_{ik}$ to be 0 when $X_{ik}$ is 0)\\
-\\
-$\sum^{|I|}_{i=1}f_{ik}*b_i\leq w_k \quad \forall k \in K$ (comes from 6)\\
-\\
-$\sum^{|K|}_{k=1}X_{i_{1}k}-\sum^{|K|}_{k=1}X_{i_{2}k}=0 \quad \forall (i_{1},i_{2}) \in I^2 $ (Rule 7) \\ \\
-$X_{i_{1}k} + X_{i_{2}k} \leq 1 \qquad \forall k \in K \quad  \forall (i_{1},i_{2}) \in I^1$  (Rule 8)\\
+\begin{equation*}
+\begin{split}
+\sum^{|K|}_{k=1}X_{ik}\leq 1 \quad \forall i \in I \qquad (Rule \ 1)\\
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+f_{ik}\leq4 \quad \forall i \in I \quad \forall k \in K  \qquad (Rule \ 2)
+\end{split}
+\end{equation*}
+\begin{equation}\label{constraint3}
+\begin{split}
+\sum^{|K|}_{k=1}f_{ik}*N_{ik}\leq s^{u}_i*X_{ik} \quad \forall i \in I
+\end{split}
+\end{equation}
+\begin{equation}\label{constraint4}
+\begin{split}
+\sum^{|K|}_{k=1}f_{ik}*N_{ik}\geq s^{l}_i*X_{ik} \quad \forall i \in I
+\end{split}
+\end{equation}
+Constraint \eqref{constraint3} and \eqref{constraint4} come from Rule 3 and 4 and enforces $f_{ik}$ to be 0 when $X_{ik}$ is 0.\\
+\begin{equation*}
+\begin{split}
+\sum^{|I|}_{i=1}f_{ik}*b_i\leq w_k \quad \forall k \in K (Rule \ 6)
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+\sum^{|K|}_{k=1}X_{i_{1}k}-\sum^{|K|}_{k=1}X_{i_{2}k}=0 \quad \forall (i_{1},i_{2}) \in I^2  (Rule \ 7) \\ \\
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+X_{i_{1}k} + X_{i_{2}k} \leq 1 \qquad \forall k \in K \quad  \forall (i_{1},i_{2}) \in I^1  (Rule \ 8)\\
+\end{split}
+\end{equation*}
