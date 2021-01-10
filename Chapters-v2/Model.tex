@@ -1,0 +1,78 @@
+\textbf{Parameters:}\\
+I : Set of products\\
+$I^{1}$: Set of product pairs (i1, i2) that cannot be placed on the same shelf.\\
+$I^{2}$: Set of product pairs (i1, i2) that will be included together in the assortment.\\
+K : Set of shelves\\
+$\pi_i$: Profit made by selling one unit of product i\\
+$w_k$ : Width of shelf k\\
+$\gamma_k$ : Shelf k’s effect on demand\\
+$ds_k$ : Depth of shelf k\\
+$dp_i$ : Depth of unit product i\\
+$b_i$: Width of a facing for product i\\
+$d_i$: Coefficient for demand rate for product i per unit width and one facing\\
+$\beta_i$: Space elasticity factor for product i\\
+$s^{l}_i$ : Lower bound on the shelf inventory of product, if i is selected in the assortment\\
+$s^{u}_i$ : Upper bound on the shelf inventory of product, if i is selected in the assortment\\
+\\
+\textbf{Notation:}\\
+$|I|$: Size of the set of products\\
+$|K|$: Size of the set of shelves\\ \\
+\textbf{Calculated Data Sets:}\\
+$N_{ik}$: number of product i in shelf k per allocation:\\
+$N_{ik}=(ds_k/dp_i)-((ds_k/dp_i)\%1)$\\
+\\
+\textbf{Decision Variables:}\\
+$X_{ijk}:$ Will the product i have j allocations on shelf k. Such that,\\
+\[
+X_{ik} =
+\begin{cases}
+1, & if \ i \ is \ allocated \ j \ times \ in \  k \\
+0, & otherwise \\
+\end{cases}
+\]
+\\
+\textbf{Objective function:}\\
+\begin{equation*}
+\begin{split}
+max \sum^{|I|}_{i=1}\sum^{|K|}_{k=1}\sum^{4}_{j=1} \gamma_k *\pi_i *d_i *(b_i)^{\beta_i} *(j)^{\beta_i} *x_{ijk} \\
+\end{split}
+\end{equation*}
+\textbf{Subjected To:}\\
+\begin{equation*}
+\begin{split}
+\sum^{|K|}_{k=1}\sum^{4}_{j=1}X_{ijk}\leq 1 \quad \forall i \in I \qquad (Rule \ 1)\\
+\end{split}
+\end{equation*}
+\begin{equation}\label{constraint3}
+\begin{split}
+\sum^{|K|}_{k=1}(N_{ik}*(\sum^{4}_{j=1}X_{ijk}*(j)^{\beta_i})-s^{u}_i*(\sum^{4}_{j=1}X_{ijk}))\leq 0 \quad \forall i \in I
+\end{split}
+\end{equation}
+\begin{equation}\label{constraint4}
+\begin{split}
+\sum^{|K|}_{k=1}(N_{ik}*(\sum^{4}_{j=1}X_{ijk}*(j)^{\beta_i})-s^{l}_i*(\sum^{4}_{j=1}X_{ijk}))\geq 0 \quad \forall i \in I
+\end{split}
+\end{equation}
+Constraint \eqref{constraint3} and \eqref{constraint4} come from Rule 3 and 4.\\
+\begin{equation*}
+\begin{split}
+-w_k+\sum^{|I|}_{i=1}(b_i*(\sum^{4}_{j=1}X_{ijk}*(j)^{\beta_i}))\leq 0 \quad \forall k \in K \qquad (Rule \ 6)
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+(\sum^{|K|}_{k=1}\sum^{4}_{j=1}X_{i_{1}jk})-(\sum^{|K|}_{k=1}\sum^{4}_{j=1}X_{i_{2}jk})=0 \quad \forall (i_{1},i_{2}) \in I^2  \qquad (Rule \ 7) \\ \\
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+(\sum^{4}_{j=1}X_{i_{1}jk}) + (\sum^{4}_{j=1}X_{i_{2}jk}) \leq 1 \qquad \forall k \in K \quad  \forall (i_{1},i_{2}) \in I^1  \qquad (Rule \ 8)\\
+\end{split}
+\end{equation*}
+
+\textbf{Restrictions:}\\
+\begin{equation*}
+\begin{split}
+X_{ijk} \in \{0,1\} \qquad \forall i \in I \quad \forall k \in K 
+\end{split}
+\end{equation*}

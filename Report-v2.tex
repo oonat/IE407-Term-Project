@@ -1,0 +1,104 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{Images/}}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{positioning,fit,arrows.meta,backgrounds}
+\graphicspath{ {images/} }
+
+
+\usepackage{xcolor}
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\tikzset{
+	module/.style={%
+		draw, rounded corners,
+		minimum width=#1,
+		minimum height=5mm,
+		font=\sffamily
+	},
+	module/.default=2cm,
+	>=LaTeX
+}
+
+
+\begin{document}
+	\begin{titlepage}
+		\newcommand{\HRule}{\rule{\linewidth}{0.1mm}} 
+		\center 
+		\includegraphics[scale=0.05]{metu} \\
+		\vspace{1cm}
+		\textsc{\Large MIDDLE EAST TECHNICAL UNIVERSITY}\\[0.5cm]
+		\HRule \\[0.4cm]
+		{ \huge \Large Term Project Report }\\[0.4cm]
+		\textsc{\large IE407}\\
+		\HRule \\[0.3cm]
+		{\today}\\[1.2cm]
+		
+		
+
+			\begin{flushleft} \large
+				\emph{Students:}\\
+				John Doe
+			\end{flushleft}
+
+
+	\end{titlepage}
+	
+	\begingroup
+	\hypersetup{hidelinks}
+	\tableofcontents
+	\endgroup
+          
+	\newpage
+	
+	\section{Introduction}
+	\input{Chapters-v2/Introduction}
+
+	\section{Project Body}
+	\input{Chapters-v2/Project}
+
+	\subsection{Proposed Model}
+	\input{Chapters-v2/Model}
+	
+	\subsubsection{Q2}
+	\input{Chapters-v2/Q2}
+	
+	\subsubsection{Q3}
+	\input{Chapters-v2/Q3}
+	
+	\subsubsection{Q4}
+	\input{Chapters-v2/Q4}
+	
+	\subsubsection{Q5}
+	\input{Chapters-v2/Q5}
+	
+	\subsubsection{Q6}
+	\input{Chapters-v2/Q6}
+	
+	\subsubsection{Q7}
+	\input{Chapters-v2/Q7}
+	
+	\subsection{Discussion}
+	\input{Chapters-v2/Discussion}
+	
+	\section{Conclusion}
+	\input{Chapters-v2/Conclusion}
+
+	\section{Appendix}
+	\input{Chapters-v2/Appendix}
+	
+	\newpage
+	
+	\bibliographystyle{acm}
+	\bibliography{Bibliography.bib}
+	
+	
+\end{document}
