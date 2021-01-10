@@ -62,16 +62,28 @@ f_{ik}\leq4 \quad \forall i \in I \quad \forall k \in K  \qquad (Rule \ 2)
 Constraint \eqref{constraint3} and \eqref{constraint4} come from Rule 3 and 4 and enforces $f_{ik}$ to be 0 when $X_{ik}$ is 0.\\
 \begin{equation*}
 \begin{split}
-\sum^{|I|}_{i=1}f_{ik}*b_i\leq w_k \quad \forall k \in K (Rule \ 6)
+\sum^{|I|}_{i=1}f_{ik}*b_i\leq w_k \quad \forall k \in K \qquad (Rule \ 6)
 \end{split}
 \end{equation*}
 \begin{equation*}
 \begin{split}
-\sum^{|K|}_{k=1}X_{i_{1}k}-\sum^{|K|}_{k=1}X_{i_{2}k}=0 \quad \forall (i_{1},i_{2}) \in I^2  (Rule \ 7) \\ \\
+\sum^{|K|}_{k=1}X_{i_{1}k}-\sum^{|K|}_{k=1}X_{i_{2}k}=0 \quad \forall (i_{1},i_{2}) \in I^2  \qquad (Rule \ 7) \\ \\
 \end{split}
 \end{equation*}
 \begin{equation*}
 \begin{split}
-X_{i_{1}k} + X_{i_{2}k} \leq 1 \qquad \forall k \in K \quad  \forall (i_{1},i_{2}) \in I^1  (Rule \ 8)\\
+X_{i_{1}k} + X_{i_{2}k} \leq 1 \qquad \forall k \in K \quad  \forall (i_{1},i_{2}) \in I^1  \qquad (Rule \ 8)\\
+\end{split}
+\end{equation*}
+
+\textbf{Restrictions:}\\
+\begin{equation*}
+\begin{split}
+X_{ik} \in \{0,1\} \qquad \forall i \in I \quad \forall k \in K 
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+f_{ik} \geq 0 \quad and \quad f \ is \ integer \qquad \forall i \in I \quad \forall k \in K
 \end{split}
 \end{equation*}
