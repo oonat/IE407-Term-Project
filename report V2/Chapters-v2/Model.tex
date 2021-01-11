@@ -19,7 +19,7 @@ $|I|$: Size of the set of products\\
 $|K|$: Size of the set of shelves\\ \\
 \textbf{Calculated Data Sets:}\\
 $N_{ik}$: number of product i in shelf k per allocation:\\
-$N_{ik}=(ds_k/dp_i)-((ds_k/dp_i)\%1)$\\
+$N_{ik}= \floor*{ds_k/dp_i}$\\
 \\
 \textbf{Decision Variables:}\\
 $X_{ijk}:$ Will the product i have j allocations on shelf k. Such that,\\
@@ -45,18 +45,18 @@ max \sum^{|I|}_{i=1}\sum^{|K|}_{k=1}\sum^{4}_{j=1} \gamma_k *\pi_i *d_i *(b_i)^{
 \end{equation*}
 \begin{equation}\label{constraint3}
 \begin{split}
-\sum^{|K|}_{k=1}(N_{ik}*(\sum^{4}_{j=1}X_{ijk}*(j)^{\beta_i})-s^{u}_i*(\sum^{4}_{j=1}X_{ijk}))\leq 0 \quad \forall i \in I
+\sum^{|K|}_{k=1}(N_{ik}*(\sum^{4}_{j=1}X_{ijk}*(j))-s^{u}_i*(\sum^{4}_{j=1}X_{ijk}))\leq 0 \quad \forall i \in I
 \end{split}
 \end{equation}
 \begin{equation}\label{constraint4}
 \begin{split}
-\sum^{|K|}_{k=1}(N_{ik}*(\sum^{4}_{j=1}X_{ijk}*(j)^{\beta_i})-s^{l}_i*(\sum^{4}_{j=1}X_{ijk}))\geq 0 \quad \forall i \in I
+\sum^{|K|}_{k=1}(N_{ik}*(\sum^{4}_{j=1}X_{ijk}*(j))-s^{l}_i*(\sum^{4}_{j=1}X_{ijk}))\geq 0 \quad \forall i \in I
 \end{split}
 \end{equation}
 Constraint \eqref{constraint3} and \eqref{constraint4} come from Rule 3 and 4.\\
 \begin{equation*}
 \begin{split}
--w_k+\sum^{|I|}_{i=1}(b_i*(\sum^{4}_{j=1}X_{ijk}*(j)^{\beta_i}))\leq 0 \quad \forall k \in K \qquad (Rule \ 6)
+-w_k+\sum^{|I|}_{i=1}(b_i*(\sum^{4}_{j=1}X_{ijk}*(j)))\leq 0 \quad \forall k \in K \qquad (Rule \ 6)
 \end{split}
 \end{equation*}
 \begin{equation*}
