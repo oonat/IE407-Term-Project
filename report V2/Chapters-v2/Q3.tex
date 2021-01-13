@@ -24,7 +24,7 @@ but because of our first constraint for any i and k values we would have 5 cases
 	\end{tabular}
 \end{table}
 
-That means we have only 5 different cases for every 4 decision variables instead of $2^{4}$
+That means we have only 5 different cases for every 4 decision variables instead of $2^{4}$.
 Because of that in the case of complete enumeration we would have
 $5^{100}$ problems for smaller data set and $5^{400}$ for bigger data set
 (these numbers were only calculated using 1st group of constraints. By adding other constrains we can reduce it more).
@@ -96,10 +96,11 @@ For larger data set the number of operations this multiplication will take is:\\
 \\ 
 283910508/3881196=279.30100403\\
 \\
-so as we can easily see, the time it takes to calculate this operation has increased
+so as we can easily see, the time it takes to calculate multiplication of these 3 matrices has increased
 more than 275 times. But since difference between other operations won't be as big as this
- operation, rate of time it takes to solve these data sets will be a little less then this number.
-Which is still a great increase but nowhere near the increase on number of problems.\\
+ operation, rate of time it takes to solve a the group of operations for a given $x_B$ and $x_N$ will be  a little less then this number.
+ But simplex method most probably will need to change more variables in bigger data set since it has more variables.
+Which would cause a great increase in solution time for an LP relaxation but it is still nowhere near the increase on number of problems.\\
 \\
-So in the end, solution time of our problem will grow exponentially because of the increase in problem count.\\
+So in the end, solution time of our problem will generally grow exponentially for bigger data sets because of the increase in problem count.\\
 
