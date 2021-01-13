@@ -21,14 +21,14 @@ We used below formulas in our excel files to simplify our calculations for Quest
 2nd and 3rd formulas are used repeteadly on constraints. 1st formula was selected like that to make our model lineer.\\
 2nd one is basically used to determine the number of allocations (facings) of the product in shelf k while 3rd one is used to determine whether the product is placed in shelf k or not.  \\
 \\
-Objective function result was found as: \textbf{6838,349047}\\
+Objective function result was found as: \textbf{6945.73351921896}\\
 \\
-According to results from opensolver supermarket gained:\\
-178,9355445 from products in shelf 1 which has $\gamma_k$ of 0.25 and width of 50cm\\
-1105,538071 from products in shelf 2 which has $\gamma_k$ of 0.6 and width of 65cm\\
-3508,467561 from products in shelf 3 which has $\gamma_k$ of 1 and width of 80cm\\
-1800,355036 from products in shelf 4 which has $\gamma_k$ of 0.6 and width of 95cm\\
-345,0528341 from products in shelf 5 which has $\gamma_k$ of 0.25 and width of 110cm\\
+According to results from opensolver, the supermarket gained:\\
+175.5006626 from products in shelf 1 which has $\gamma_k$ of 0.25 and width of 50cm\\
+1317.396698 from products in shelf 2 which has $\gamma_k$ of 0.6 and width of 65cm\\
+3512.138959 from products in shelf 3 which has $\gamma_k$ of 1 and width of 80cm\\
+1588.496409 from products in shelf 4 which has $\gamma_k$ of 0.6 and width of 95cm\\
+352.2007896 from products in shelf 5 which has $\gamma_k$ of 0.25 and width of 110cm\\
 \\
 3rd shelf that has the highest $\gamma_k$ value gained most money.
 Also the supermarket gained more from shelf 4 in comparison to shelf 2 and
@@ -37,6 +37,6 @@ The reason of this is the difference in their width.
 Shelves 4 and 5 had more space for more products and facings.
 Because of that those shelves gained more money even though they had the same $\gamma_k$.\\
 \\
-Products 5,9,10,12,14,15,25 that has highest amount of $\beta_i$ (0.8-0.9) had most number of facings(3-4) and made most money for the supermarket. Products 18 and 24 also had high $\beta_i$ values but they weren't either selected for the assortment or only had 1 facing because their coefficient for demand ($b_i$) were much lower than others. Also all of these products were in shelves 2,3 and 4 which has higher $\gamma_k$ values than shelves 1 and 5\\
+Products 5,9,10,12,14,15,25 that has highest amount of $\beta_i$ (0.8-0.9) had most number of facings(3-4) and made most money for the supermarket. Products 18 and 24 also had high $\beta_i$ values but they weren't either selected for the assortment or only had 2 facing because their coefficient for demand ($d_i$) were much lower than others. Also all of these products were in shelves 2,3 and 4 which has higher $\gamma_k$ values than shelves 1 and 5\\
 \\
 Using above information the supermarket should choose products with high space elasticity factor ($\beta_i$) while considering coefficients like $\pi_i,d_i$ and $b_i$ and place them in most profitable shelves.\\
