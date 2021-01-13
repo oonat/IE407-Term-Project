@@ -17,12 +17,13 @@ $s^{u}_i$ : Upper bound on the shelf inventory of product, if i is selected in t
 \textbf{Notation:}\\
 $|I|$: Size of the set of products\\
 $|K|$: Size of the set of shelves\\ \\
-\textbf{Calculated Data Sets:}\\
-$N_{ik}$: number of product i in shelf k per allocation:\\
-$N_{ik}= \floor*{ds_k/dp_i}$\\
+\textbf{Calculated Parameters:}\\
+$N_{ik}$: number of product i in shelf k per allocation (facing):\\
+$N_{ik}= \floor*{ds_k/dp_i}$\\ \\
+As mentioned in the introduction part, since the we are expected to fill all facings fully, $N_{ik}$ is a constant parameter calculated from the given data set rather than a decision variable which makes our life easier. \\
 \\
 \textbf{Decision Variables:}\\
-$X_{ijk}:$ Will the product i have j allocations on shelf k. Such that,\\
+$X_{ijk}:$ Will the product i have j allocations (facings) on shelf k. Such that,\\
 \[
 X_{ik} =
 \begin{cases}

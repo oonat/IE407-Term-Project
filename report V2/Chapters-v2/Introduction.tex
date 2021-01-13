@@ -1,8 +1,33 @@
-In this project, we have developed a solution for "Assortment Selection and Shelf Space Allocation Problem". Although in the literature, the problem has different variations, we studied a simplified version of the problem where,
+In this project, we have conducted a study on "Assortment Selection and Shelf Space Allocation Problem". Although in the literature, the problem has different variations, we studied a simplified version of the problem where,
 \begin{itemize}
-	\item If a product is chosen for the assortment, then all the facings of the product have to be filled fully. This restriction is especially important since dealing with variable size allocations makes the problem more complex. Such situation can be found in \cite{hubner}
-	\item The manager does not want to allocate more than four facings for a product. The importance of this constraint is explained in \ref{p_body}
-	\item Other constraints can be found in \ref{rules}
+	\item If a product is chosen for the assortment, then all the facings of the product have to be filled fully. This restriction was especially important since dealing with variable sized product numbers per facing makes the problem more complex. Such situation can be found in \cite{hubner}
+	\item The manager does not want to allocate more than four facings for a product. The importance of this constraint is explained in \ref{p_body} in detail, basically we used this constraint to transform our non-linear model to a linear one.
+	\item Other constraints and rules can be found in \ref{rules}
 \end{itemize}
+The task we worked on was determining the optimal way to select products for the assortment and how these products placed in shelves, in order to gain maximum profit. \\ \\
+Initially, in the market, we had 25 products belong to a certain category and 5 shelves to place those products on, where for each product,
+\begin{itemize}
+	\item $\pi_i$: Profit made by selling one unit of the product, this parameter was used to calculate total profit gained from the product
+	\item $b_i$: Width of a facing for the product (in cm)
+	\item $dp_i$ : Depth of unit the product (in cm)
+	\item $\beta_i$: Space elasticity factor for the product
+	\item $s^{l}_i$ : Lower bound on the shelf inventory of the product, if it is selected in the assortment
+	\item $s^{u}_i$ : Upper bound on the shelf inventory of the product, if it is selected in the assortment
+	\item $d_i$: Coefficient for demand rate for the product per unit width and one facing\\
+	\item $\beta_i$: Space elasticity factor for the product\\
+\end{itemize}
+parameters and for each shelve,
+\begin{itemize}
+	\item $w_k$ : Width of the shelf (in cm)
+	\item $ds_k$ : Depth of the shelf (in cm)
+	\item $\gamma_k$ : Shelf k’s effect on demand\\
+\end{itemize}
+parameters were given. In line with these parameters, demand for a product was calculated as follows,
+\begin{equation*}
+	d_{i}(f_i * b_i)^\beta_i
+\end{equation*}
+Our approach to the given problem and the proposed mathematical model that best fits to our objective and constraints are given in \ref{p_body}
+
+
 
 

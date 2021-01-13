@@ -15,8 +15,8 @@ max \sum^{|I|}_{i=1}\sum^{|K|}_{k=1}\pi_i \gamma_k d_i(f_{ik} * b_i)^{\beta_i} \
 \end{split}
 \end{equation*}
 As can be confirmed, if we choose $f_{ik}$ as a decision variable then the given objective function makes the model non-linear. Since the "opensolver" is not good at solving non-linear problems, we decided to modify the initial model to obtain a linear model. \\ \\
-The proposed model \ref{p_model} has been built considering (with the help of) Rule 2. Since for a product we can not allocate more than 4 facings (which gives us a constant domain for facings), defining a seperate decision variable for facings is unnecessary. Rather we define a new decision variable instead of the previous ones, \\ \\
-$X_{ijk}:$ Will the product i have j allocations on shelf k. Such that,\\
+The proposed model \ref{p_model} has been built considering (with the help of) Rule 2. Since for a product we can not allocate more than 4 facings (i.e. $f_{ik} \in \{1,2,3,4\}$, if the product is chosen for the assortment), defining a seperate decision variable for facings was unnecessary. Rather we defined a new decision variable instead of the previous ones, \\ \\
+$X_{ijk}:$ Will the product i have j allocations (facings) on shelf k. Such that,\\
 \[
 X_{ik} =
 \begin{cases}
@@ -25,4 +25,4 @@ X_{ik} =
 \end{cases}
 \]
 \\
-where $j \in \{1,2,3,4\}$. With this new approach, we have achieved to develop a linear model which can be reached in \ref{p_model}.
+where $j \in \{1,2,3,4\}$. With this new approach, we have achieved to develop a linear model which can be seen in \ref{p_model}.
