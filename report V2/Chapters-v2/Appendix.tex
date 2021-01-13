@@ -66,7 +66,15 @@ product.} $\sqrt{}$\\
 8- \textbf{For some pairs of products, there is a restriction that they cannot be on the same shelf}$\sqrt{}$\\
 \subsection{Opensolver Results}\label{opensolver_res}
  Objective function results for the scenarios are already given and discussed in the \ref{p_body} section. In this section, the tables for the decision variable values calculated by opensolver for the corresponding objective function results are given. \\ \\
-For each table,
+ \[
+ X_{ijk} =
+ \begin{cases}
+ 1, & if \ i \ is \ allocated \ j \ times \ (i.e. \ has \ j \ facings) \ in \  k \\
+ 0, & otherwise \\
+ \end{cases}
+ \]
+ 
+ Tables given below represent $X_{i1k}$, $X_{i2k}$, $X_{i3k}$, $X_{i4k}$ from left to right, respectively. For each table,
 \begin{itemize}
 	\item  Column k represents kth shelf,
 	\item  Row i represents ith product
