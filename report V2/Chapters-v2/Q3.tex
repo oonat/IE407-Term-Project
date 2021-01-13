@@ -1,1 +1,99 @@
-Q3
+Objective function result was found as: 37906,15197\\
+\\
+In our model we are using 4*ProductCount*ShelfCount decision variables\\
+(500 for smaller, 2000 for bigger data set)
+
+While the lesser data set worked in an instant larger data set took 34 seconds to finish.\\
+This is because number of decision variables increases, which in turn increases\\
+the time it takes to solve relaxation of a problem and number of problems.\\
+\\
+For a problem like this the worst case is complete enumeration of decision variables.\\
+And all of our decision variables are binary which means normally the worst case\\
+we would have needed to solve $2^{500}$ for lesser data set and $2^{2000}$ for bigger data set.\\
+but because of our first constraint for any i and k values we would have 5 cases which are:\\
+case1: 0 0 0 0\\
+case2: 1 0 0 0\\
+case3: 0 1 0 0\\
+case4: 0 0 1 0\\
+case5: 0 0 0 1\\
+That means we have only 5 different cases for every 4 decision variables instead of $2^{4}$
+Because of that in the case of complete enumeration we would have\\
+$5^{100}$ problems for smaller data set and $5^{400}$ for bigger data set.\\
+(these numbers were only calculated using first constrain. By adding others we can reduce them more.)\\
+so as we can see for the complete enumeration our problem number increases exponentially.\\
+Because of that solution time will also increase exponentially.\\
+\\
+Also since we are using more constraints and decision variables, the size of the matrixes\\
+we are going to use to solve an LP relaxation of a problem, will increase in size.\\
+\\
+Size of B matrix is dependent on constrain count.\\
+Size of N matrix is dependent on variable count and size of B.\\
+Lets calculate sizes of these matrixes for each data set:\\
+\\
+1- Smaller data set:\\
+400 decision variables\\
+25 constrains from rule 1st group of constraints. which also adds 25 slack variables($<$=)\\
+25 constrains from rule 2nd group of constraints. which also adds 25 excess variables($>$=)\\
+25 constrains from rule 3rd group of constraints. which also adds 25 slack variables($<$=)\\
+5 constrains from rule 4th group of constraints. which also adds 5 slack variables($<$=)\\
+4 constrains from rule 5th group of constraints. (=)\\
+15 constrains from rule 6th group of constraints. which also adds 15 slack variables($<$=)\\
+so we have 99 constrains\\
+and 495 decision variables\\
+495-99=396\\
+\\
+which means size of our Matrices are:\\
+B=99*99\\
+N=99*396\\
+$x_B$=99*1\\
+$x_N$=396*1\\
+$c_B$=99*1\\
+$c_N$=396*1\\
+b=99*1\\
+$B^{-1}$=99*99\\
+\\
+2- Larger data set:\\
+2000 decision variables\\
+100 constrains from rule 1st group of constraints. which also adds 100 slack variables($<$=)\\
+100 constrains from rule 2nd group of constraints. which also adds 100 excess variables($>$=)\\
+100 constrains from rule 3rd group of constraints. which also adds 100 slack variables($<$=)\\
+5 constrains from rule 4th group of constraints. which also adds 5 slack variables($<$=)\\
+13 constrains from rule 5th group of constraints. (=)\\
+60 constrains from rule 6th group of constraints. which also adds 60 slack variables($<$=)\\
+so we have 378 constrains\\
+and 2365 decision variables\\
+2365-378=1987\\
+\\
+which means size of our Matrices are:\\
+B=378*378\\
+N=378*1987\\
+$x_B$=378*1\\
+$x_N$=1987*1\\
+$c_B$=378*1\\
+$c_N$=1987*1\\
+b=378*1\\
+$B^{-1}$=378*378\\
+\\
+Note: and those numbers are calculated while ignoring artificial variables\\.
+\\
+Since we are going to use simplex method we would need to make matrix multiplications.\\
+Which are the most costly operations in big data sets.\\
+(if you are making opearation: AxB for A matrix being a*b and B matrix b*c you would need to do a*b*c multiplications)\\ 
+\\
+Lets just calculate biggest operation we are going to need to do:\\
+which is $c_B^{T}*B^{-1}*N$ (its actually: $c_N^{T}-c_B^{T}*B^{-1}*N$ but matrix multiplication is much slower than matrix differention so it doesnt make almost any difference)
+\\
+For first data set the number of operations this multiplication will take is:\\
+(1*99*99)*(1*99*396)=384238404 operations\\
+For first data set the number of operations this multiplication will take is:\\
+(1*378*378)*(1*378*1987)=107318172024 operations\\
+\\ 
+283910508/3881196=279.30100403\\
+\\
+so as we can easily see, the time it takes to calculate this operation has increased\\
+more than 275 times. But since difference between other operations wont be as big as this\\
+Our operation time will be a little less then this number.
+which is a great increase but nowhere near the increase on number of problems.\\
+\\
+So in the end solution time of our problem will grow exponentially because of the increase in problem count.\\
+
