@@ -3,23 +3,23 @@ In this section, solution of the problem for given data set \ref{data-set} obtai
 We used below formulas to simplify our calculations:\\
 \begin{equation*}
 \begin{split}
-1-f(i,k)^{\beta_i}=\sum_{j=1}^{4}X_{ijk}*j^{\beta_i} \quad \forall i\in I \quad \forall k\in K\\
+1) \quad f(i,k)^{\beta_i}=\sum_{j=1}^{4}X_{ijk}*j^{\beta_i} \quad \forall i\in I \quad \forall k\in K\\
 \end{split}
 \end{equation*}
 \begin{equation*}
 \begin{split}
-2-f(i,k)=\sum_{j=1}^{4}X_{ijk}*j \quad \forall i\in I \quad \forall k\in K\\
+2) \quad f(i,k)=\sum_{j=1}^{4}X_{ijk}*j \quad \forall i\in I \quad \forall k\in K\\
 \end{split}
 \end{equation*}
 \begin{equation*}
 \begin{split}
-3-Z(i,k)=\sum_{j=1}^{4}X_{ijk} \quad \forall i\in I \quad \forall k\in K\\
+3) \quad Z(i,k)=\sum_{j=1}^{4}X_{ijk} \quad \forall i\in I \quad \forall k\in K\\
 \end{split}
 \end{equation*}
 \\
 \textbf{Important Notes:} 1st formula is used in objective function.\\
-2nd and 3rd formulas are used repeteadly on constraints.\\
-1st formula was selected like that to make our model lineer.\\
+2nd and 3rd formulas are used repeteadly on constraints. 1st formula was selected like that to make our model lineer.\\
+2nd one is basically used to determine the number of allocations (facings) of the product in shelf k while 3rd one is used to determine whether the product is placed in shelf k or not.  \\
 \\
 Objective function result was found as: \textbf{6838,349047}\\
 \\
