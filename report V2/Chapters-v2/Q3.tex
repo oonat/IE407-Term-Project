@@ -1,4 +1,5 @@
 According to opnesolver objective function result was found as: \textbf{37906,15197}\\
+Refer to \ref{q3_res} for decision varable results.\\
 We also used formulas $f(i,k)^{\beta_i},f(i,k),Z(i,k)$ from Question 2 for this part to simplify our calculations once again.
 \\
 In our model we are using \textbf{4*ProductCount*ShelfCount} decision\\
@@ -71,7 +72,7 @@ so we have 378 constrains\\
 and 2365 decision variables\\
 2365-378=1987\\
 \\
-That means size of our Matrices are:\\
+That means size of our Matrices for larger data set is:\\
 B=378*378\\
 N=378*1987\\
 $x_B$=378*1\\
@@ -81,7 +82,7 @@ $c_N$=1987*1\\
 b=378*1\\
 $B^{-1}$=378*378\\
 \\
-Note: Those numbers are calculated while ignoring artificial variables\\.
+Note: Above numbers are calculated while ignoring artificial variables\\.
 \\
 Since we are going to use simplex method we would need to make matrix multiplications.\\
 Which are the most costly operations in big data sets.\\
@@ -103,5 +104,5 @@ operation, rate of time it takes to solve a the group of operations for a given 
 But simplex method most probably will need to change more variables in bigger data set since it has more variables.
 Which would cause a great increase in solution time for an LP relaxation but it is still nowhere near the increase on number of problems.\\
 \\
-So in the end, solution time of our problem will generally grow exponentially for bigger data sets because of the increase in problem count.\\
+So in the end, solution time of our problem will generally grow exponentially for larger data sets due to exponential increase in problem count.\\
 
