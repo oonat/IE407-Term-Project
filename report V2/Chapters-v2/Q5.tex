@@ -9,4 +9,17 @@
 	\end{tabular}
 	\caption{Q5 Comparison Table}
 \end{table}
-In this section, we analysed how the solution and profit given in \ref{q2} change, if the shortest (in width) available shelf is allocated to some other category. The shortest shelf in \ref{data-set} is the one with Shelf number 1. Since the shelves are allocated for only the products belong to the same category, by allocating it to some other category, in fact we remove it from our data set.
+In this section, we analysed how the solution and profit given in \ref{q2} change, if the shortest (in width) available shelf is allocated to some other category. The shortest shelf in \ref{data-set} is the one with Shelf number 1. Since the shelves are allocated for only the products belong to the same category, by allocating it to some other category, in fact we remove it from our data set.\\
+\\
+After removing the lowest in width shelf, supermarket's profit decreased by 99.8327219836 even though shortest in width shelf(shelf 1) were gaining 175.5006626. This is because 2 products out of the 3 products that were in shelf 1 were moved to other shelves(product 8 was moved to shelf 5 and product 21(most profitable product on shelf 1 previously) was moved to shelf 4). \\
+\\
+\textbf{So we can easily conclude when removing a shelf we should consider to move the most profitable products in that shelf tto other shelves even if our removed shelf has low $\gamma_k$ value.\\
+}\\
+\\
+\underline{\textbf{Changes in the excel model:}}\\
+we have added the below constrain to make the shortest in width shelf(1st shelf) unavaliable:\\
+\begin{equation*}
+\begin{split}
+\sum^{|I|}_{i=1}X_{ij1}=0 \quad \forall j \in \{1,2,3,4\} \\
+\end{split}
+\end{equation*}

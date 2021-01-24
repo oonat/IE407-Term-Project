@@ -41,33 +41,33 @@ max \sum^{|I|}_{i=1}\sum^{|K|}_{k=1}\sum^{4}_{j=1} \gamma_k *\pi_i *d_i *(b_i)^{
 \textbf{Subjected To:}\\
 \begin{equation*}\label{constraint1}
 \begin{split}
-\sum^{|K|}_{k=1}\sum^{4}_{j=1}X_{ijk}\leq 1 \quad \forall i \in I \qquad (Rule \ 1)\\
+1)\ \sum^{|K|}_{k=1}\sum^{4}_{j=1}X_{ijk}\leq 1 \quad \forall i \in I \qquad (Rule \ 1)\\
 \end{split}
 \end{equation*}
 \begin{equation}\label{constraint3}
 \begin{split}
-\sum^{|K|}_{k=1}(N_{ik}*(\sum^{4}_{j=1}X_{ijk}*(j))-s^{u}_i*(\sum^{4}_{j=1}X_{ijk}))\leq 0 \quad \forall i \in I
+2)\ \sum^{|K|}_{k=1}(N_{ik}*(\sum^{4}_{j=1}X_{ijk}*(j))-s^{u}_i*(\sum^{4}_{j=1}X_{ijk}))\leq 0 \quad \forall i \in I
 \end{split}
 \end{equation}
 \begin{equation}\label{constraint4}
 \begin{split}
-\sum^{|K|}_{k=1}(N_{ik}*(\sum^{4}_{j=1}X_{ijk}*(j))-s^{l}_i*(\sum^{4}_{j=1}X_{ijk}))\geq 0 \quad \forall i \in I
+3)\ \sum^{|K|}_{k=1}(N_{ik}*(\sum^{4}_{j=1}X_{ijk}*(j))-s^{l}_i*(\sum^{4}_{j=1}X_{ijk}))\geq 0 \quad \forall i \in I
 \end{split}
 \end{equation}
 Constraint \eqref{constraint3} and \eqref{constraint4} come from Rule 3 and 4.\\
 \begin{equation*}\label{constraint5}
 \begin{split}
--w_k+\sum^{|I|}_{i=1}(b_i*(\sum^{4}_{j=1}X_{ijk}*(j)))\leq 0 \quad \forall k \in K \qquad (Rule \ 6)
+4)\ -w_k+\sum^{|I|}_{i=1}(b_i*(\sum^{4}_{j=1}X_{ijk}*(j)))\leq 0 \quad \forall k \in K \qquad (Rule \ 6)
 \end{split}
 \end{equation*}
 \begin{equation*}\label{constraint6}
 \begin{split}
-(\sum^{|K|}_{k=1}\sum^{4}_{j=1}X_{i_{1}jk})-(\sum^{|K|}_{k=1}\sum^{4}_{j=1}X_{i_{2}jk})=0 \quad \forall (i_{1},i_{2}) \in I^2  \qquad (Rule \ 7) \\ \\
+5)\ (\sum^{|K|}_{k=1}\sum^{4}_{j=1}X_{i_{1}jk})-(\sum^{|K|}_{k=1}\sum^{4}_{j=1}X_{i_{2}jk})=0 \quad \forall (i_{1},i_{2}) \in I^2  \qquad (Rule \ 7) \\ \\
 \end{split}
 \end{equation*}
 \begin{equation*}\label{constraint7}
 \begin{split}
-(\sum^{4}_{j=1}X_{i_{1}jk}) + (\sum^{4}_{j=1}X_{i_{2}jk}) \leq 1 \qquad \forall k \in K \quad  \forall (i_{1},i_{2}) \in I^1  \qquad (Rule \ 8)\\
+6)\ (\sum^{4}_{j=1}X_{i_{1}jk}) + (\sum^{4}_{j=1}X_{i_{2}jk}) \leq 1 \qquad \forall k \in K \quad  \forall (i_{1},i_{2}) \in I^1  \qquad (Rule \ 8)\\
 \end{split}
 \end{equation*}
 
