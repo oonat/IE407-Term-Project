@@ -17,16 +17,14 @@ In this section, we analysed how the profit found in \ref{q2} changes and what a
 	\item the width of Shelf 5 ($w_5$) is increased by 10 cm
 \end{itemize}
 
-Firstly, for both cases, we are relaxing constraints by increasing the shelf width. Therefore, we can say that our profit either will be a little higher, or will be the same.
-
+Firstly, in both cases, we are relaxing constraints by increasing the shelf width. Therefore, we can say that our profit either will be a little higher or will be the same.
 For the first case, we see that the new profit is 6958.7. As a result of increasing shelf width, we gain a 12.96 profit increase.
-
 For the second case, we are relaxing constraints a bit more. As a result of increasing shelf width even more, our new profit is 6971.46, even 25.7 more than the first case, as we expected.
-
-As a result, increasing the width of Shelf 5 by 10cm is a more preferable scenario when we compare it with 5cm increase.\\
+As a result, increasing the width of Shelf 5 by 10cm is a preferable scenario when we compare it with 5cm increase.\\
 \\
 \underline{\textbf{Basic Variables:}}\\
-Basic variables for a problem is dependent on its number of constrains. Since this question's model is same as Q2 we know that we have 99 constrains which means we have 99 basic variables. We have a total of 25 products and and every assorted product is 1 of those basic variables(It's actually not the product itself but the $X_{ijk}$ variable of the product, if its value is 1). Since we have exactly 25 products, we will have at least 74 basic variables that are excess and slack variables(since our solution is feasible for both 5cm and 10 cm we won't have artificial variables as basic variables). Below you can find the basic variables which are neither excess nor slack variables.
+
+Basic variables for a problem is dependent on its number of constraints. Since this question's model is same as Q2 we know that we have 99 constrains which means we have 99 basic variables. We have a total of 25 products and and every assorted product is 1 of those basic variables(It's actually not the product itself but the $X_{ijk}$ variable of the product, if its value is 1). Since we have exactly 25 products, we will have at least 74 basic variables that are excess and slack variables(since our solution is feasible for both 5cm and 10 cm we won't have artificial variables as basic variables). Below you can find the basic variables which are neither excess nor slack variables.
 \\ \\
 \textbf{$X_{ijk}$ basic variables for 5cm increase:}\\
 $X_{1,1,4}$
@@ -101,6 +99,7 @@ In addition, you can find the basic variable differences between the two scenari
 	\end{tabular}
 \caption{Basic Variable Comparison Table}
 \end{table}
+
 
 \underline{\textbf{Changes in the excel model:}}\\
 We changed $w_5$ to 115 and 120
