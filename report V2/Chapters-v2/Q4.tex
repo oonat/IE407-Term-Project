@@ -9,20 +9,20 @@
 	\end{tabular}
 	\caption{Q4 Comparison Table}
 \end{table}
-In this section, we analysed how the solution given in \ref{q2} changes if we add the 6th shelf with $w_6 = 40$, $ds_6 = 25$, $\gamma_6 = 0.45$ to the $K$ given in \ref{data-set}.\\
+In this section, we analysed how the solution given in \ref{q2} changes if we add the sixth shelf with $w_6 = 40$, $ds_6 = 25$, $\gamma_6 = 0.45$ to the $K$ given in \ref{data-set}.\\
 \\
-Since we are adding more space to sell our products its given that we will either gain more money or our profit will stay the same.\\
-Even though the new shelf had less width then all other shelves it gained us more money then what the first shelf gained us before we added the last shelf(175.5006626) also the profit gained per width for the new shelf is higher then the 5th shelf's profit per width before adding the new shelf which is:\\
+Since we are adding more space to sell our products its given that we will either gain more money, or our profit will stay the same.\\
+Even though the new shelf had less width than all other shelves, it gained us more money then what the first shelf gained us before we added the last shelf(175.5006626). Also, the profit gained per width for the new shelf is higher than the 5th shelf's profit per width before adding the new shelf, which is:\\
 \\
 profit added per added width: $219.6/40=5.49$\\
 5th shelf's profit per width(before adding the new shelf): $352/110=3.2$\\
 1st shelf's profit per width(before adding the new shelf): $175.5/50=3.51$\\
 \\
-\textbf{This is because the $\gamma_k$($\gamma_6$) value of the new shelf(0.45) is higher than $\gamma_k$ values of shelves 1 and 5(0.25 for both). Because of this adding most profitable products on shelves 1 and 5 to the new shelf would be beneficial to us.}\\
+\textbf{This is because the $\gamma_k$($\gamma_6$) value of the new shelf(0.45) is higher than $\gamma_k$ values of shelves 1 and 5(0.25 for both). Thus, adding the most profitable products on shelves 1 and 5 to the new shelf would be beneficial to us.}\\
 \\
 \underline{\textbf{Changes in the excel model:}}\\
-* First we added the parameters of the new shelf to our parameters with given values.\\
-Then we added 100 new $X_{ijk}$ decision variables since we need $|I|$*4 (25*4=100) variables for every shelf\\
-* After this was done we added a 25 $N_{ik}$($N_{ik}$=Number of product i in shelf k per allocation
+* First, we added the parameters of the new shelf to our parameters with given values.\\
+Then, we added 100 new $X_{ijk}$ decision variables since we need $|I|$*4 (25*4=100) variables for every shelf.\\
+* After this is done, we added 25 $N_{ik}$($N_{ik}$=Number of product i in shelf k per allocation
 ) because of the added shelf(shelf 6).\\
 * And for last; we added 25 new $f(i,k)^{\beta_i},f(i,k),Z(i,k)$ values for shelf 6 as  $f(i,6)^{\beta_i},f(i,6),Z(i,6)$ (these derived values were used in every constrain and the objective function so we didnt need to change any other constrain)
